@@ -39,4 +39,8 @@ client = pymongo.MongoClient("mongodb://localhost:27017/")
 
 db = client.db.Quotes
 
-
+try:
+    db.insert_many(quotes)
+    print(f'inserted {len(quotes)} articles')
+except:
+    print('an error occurred quotes were not stored to db')
